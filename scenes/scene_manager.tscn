@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://c41d30gdf3eis"]
+[gd_scene load_steps=2 format=3 uid="uid://c41d30gdf3eis"]
+
+[ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_57mwd"]
 
 [node name="SceneManager" type="Node"]
+script = ExtResource("1_57mwd")
+
+[node name="ImplosionTimer" type="Timer" parent="."]
+wait_time = 1500.0
+one_shot = true
+
+[connection signal="timeout" from="ImplosionTimer" to="." method="_on_implosion_timer_timeout"]

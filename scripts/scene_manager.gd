@@ -6,4 +6,5 @@ extends Node
 
 
 func _on_implosion_timer_timeout():
-	pass # Replace with function body.
+	#Ends the game with the sub imploding and player dying
+	pass
