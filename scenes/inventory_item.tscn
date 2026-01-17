@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfcalalo2txuf"]
+
+[ext_resource type="Script" uid="uid://c0i8uj47ismn4" path="res://scripts/inventory_item.gd" id="1_letey"]
+[ext_resource type="Texture2D" uid="uid://ba5ltta7w51pi" path="res://icon.svg" id="2_y87vu"]
+
+[node name="Interactable" type="Node2D"]
+script = ExtResource("1_letey")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 45.695313
+offset_bottom = 45.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.6953125, 0.6953125)
+texture = ExtResource("2_y87vu")
