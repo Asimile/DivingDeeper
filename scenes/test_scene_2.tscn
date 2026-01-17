@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpnpk70i6xylr"]
+[gd_scene load_steps=3 format=3 uid="uid://bpnpk70i6xylr"]
 
 [ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="2_4ol47"]
+[ext_resource type="Texture2D" uid="uid://ba5ltta7w51pi" path="res://icon.svg" id="2_r8opr"]
 
 [node name="TestScene2" type="Node2D"]
 
@@ -8,3 +9,9 @@
 position = Vector2(1074, 379)
 rotation = 3.1415927
 destination_scene_path = "res://scenes/test_scene_1.tscn"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(513.00006, 320)
+rotation = 0.5582083
+scale = Vector2(2.234375, 2.6796875)
+texture = ExtResource("2_r8opr")
