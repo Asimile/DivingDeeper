@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpnpk70i6xylr"]
+
+[ext_resource type="Texture2D" uid="uid://ctp1o1y3mr42u" path="res://assets/art/Screenshot 2025-11-08 195923.png" id="1_r8opr"]
+[ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="2_4ol47"]
+
+[node name="TestScene2" type="Node2D"]
+
+[node name="Screenshot20251108195923" type="Sprite2D" parent="."]
+position = Vector2(497.99997, 311)
+scale = Vector2(0.405, 0.405)
+texture = ExtResource("1_r8opr")
+
+[node name="Arrow" parent="." instance=ExtResource("2_4ol47")]
+position = Vector2(1074, 379)
+rotation = 3.1415927
+destination_scene_path = "res://scenes/test_scene_1.tscn"

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://do2jl3b78rxpk"]
+
+[ext_resource type="Texture2D" uid="uid://c6xtrtaua24rb" path="res://assets/art/asimPassInfoPage.jpg" id="1_hd1c1"]
+[ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="2_c7jcs"]
+
+[node name="TestScene1" type="Node2D"]
+
+[node name="AsimPassInfoPage" type="Sprite2D" parent="."]
+position = Vector2(568.00006, 311.00006)
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("1_hd1c1")
+
+[node name="Arrow" parent="." instance=ExtResource("2_c7jcs")]
+position = Vector2(23, 231)
+destination_scene_path = "res://scenes/test_scene_2.tscn"

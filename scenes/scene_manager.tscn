@@ -9,4 +9,23 @@ script = ExtResource("1_57mwd")
 wait_time = 1500.0
 one_shot = true
 
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+layer = 1000
+
+[node name="FadeRect" type="ColorRect" parent="FadeLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -946.0
+offset_top = -576.0
+offset_right = -1990.4807
+offset_bottom = -1127.8091
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(31.12, 18.64)
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="RoomContainer" type="Node" parent="."]
+
 [connection signal="timeout" from="ImplosionTimer" to="." method="_on_implosion_timer_timeout"]
