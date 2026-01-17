@@ -3,7 +3,8 @@ extends Node
 var fade_duration = 1.0
 
 @onready var room_container = $RoomContainer
-@onready var fade_rect := $FadeLayer/FadeRect
+@onready var fade_rect := $FadeRect
+@onready var animation_player = $AnimationPlayer
 
 var current_room: Node
 var is_transitioning := false
@@ -24,35 +25,19 @@ func change_room_scene(destination_path: String):
 	if not ResourceLoader.exists(destination_path):
 		push_error("Room scene not found: %s" % destination_path)
 		return
-
+		
 	is_transitioning = true
-	await _fade_out()
-
-	_swap_room(destination_path)
-
-	await _fade_in()
+	fade_and_swap(destination_path)
 	is_transitioning = false
-
-func _fade_out():
-	var tween := create_tween()
-	tween.tween_property(
-		fade_rect,
-		"modulate:a",
-		1.0,
-		fade_duration
-	)
-	await tween.finished
-
-func _fade_in():
-	var tween := create_tween()
-	tween.tween_property(
-		fade_rect,
-		"modulate:a",
-		0.0,
-		fade_duration
-	)
-	await tween.finished
 	
+func fade_and_swap(destination_path: String):
+	animation_player.play("fade")
+	await animation_player.animation_finished
+	
+	_swap_room(destination_path)
+	
+	animation_player.play_backwards()
+
 func _swap_room(destination_path: String):
 	current_room.queue_free()
 
