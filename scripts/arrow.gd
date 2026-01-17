@@ -15,7 +15,8 @@ func _on_button_pressed():
 	print("Button pressed! Switching scenes")
 	# Will eventually make a call to the scene manager, providing the scene to go to
 	# Scene manager will handle switching scene, as well as providing the scene which items are gone or still there.
-	get_tree().change_scene_to_file(destination_scene_path)
+	#get_tree().change_scene_to_file(destination_scene_path)
+	SceneManager.change_room_scene(destination_scene_path)
 
 func float_between_points():
 	tween.set_loops() # infinite loop
