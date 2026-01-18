@@ -1,8 +1,7 @@
 extends Node2D
 
-@export var homePosition = Vector2(0,0) #the canvas location of the items inventory slot
-@export var index = 0; #the inventory slot this item belongs to
-
+var homePosition = Vector2(0,0) #the canvas location of the items inventory slot
+var index = 0; #the inventory slot this item belongs to
 var dragging = false
 
 func _ready():
@@ -53,6 +52,6 @@ func on_use():
 		self.position = homePosition 
 	
 	if (interactionStatus == GlobalInteractions.OUTCOME.SUCCESS_FINAL):
-		#delete self (item was used up)
-		self.queue_free()
 		#TODO notify inventory system that item was deleted
+		#TODO have inventory manager delete item instance
+		self.queue_free() #delete self 
