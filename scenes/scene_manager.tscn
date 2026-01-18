@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c41d30gdf3eis"]
+[gd_scene load_steps=6 format=3 uid="uid://c41d30gdf3eis"]
 
 [ext_resource type="Script" uid="uid://bhxi3828do551" path="res://scripts/scene_manager.gd" id="1_57mwd"]
+[ext_resource type="AudioStream" uid="uid://cr7blxxtrorho" path="res://assets/audio/footsteps.ogg" id="2_65mdo"]
 
 [sub_resource type="Animation" id="Animation_65mdo"]
 length = 0.001
@@ -45,6 +46,12 @@ script = ExtResource("1_57mwd")
 [node name="ImplosionTimer" type="Timer" parent="."]
 wait_time = 1500.0
 one_shot = true
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_65mdo")
+volume_db = -5.0
 
 [node name="RoomContainer" type="Node" parent="."]
 
