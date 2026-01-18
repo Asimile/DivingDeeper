@@ -19,6 +19,13 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://scenes/scene_manager.tscn"
 GlobalInteractions="*res://scripts/global_interactions.gd"
+GlobalData="*res://scripts/global.gd"
+
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [rendering]
 
