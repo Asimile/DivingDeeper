@@ -3,8 +3,8 @@ extends Node
 @export var debug = true
 
 signal itemGrabbed(itemIndex) #emitted when an item is grabbed in the inventory
-signal itemUsed(position)  #emitted when an item is dropped outside of the inventory
-signal interactionOutcome(index, outcome) #emitted by an interactable when an item is dropped on it
+signal itemUsed(index)  #emitted when an item is dropped outside of the inventory
+signal interactionOutcome(outcome, index) #emitted by an interactable when an item is dropped on it
 
 # Outcome codes for drag/drop interactions
 const OUTCOME = {
@@ -19,14 +19,14 @@ func _ready():
 	connect("itemUsed", onItemUsed)
 	connect("interactionOutcome", onItemInteraction)
 
-func onItemUsed(pos):
+func onItemUsed(index):
 	if debug:
-		print("item dropped at (" + str(pos.x) + ", " + str(pos.y) + ")")
+		print("item " + str(index) + " dropped")
 	
 func onItemGrabbed(i):
 	if debug: 
 		print("item " + str(i) + " grabbed")
 
-func onItemInteraction(i, status):
+func onItemInteraction(outcome, i):
 	if debug:
-		print("item " + str(i) + " used, interaction: " + OUTCOME.find_key(status))
+		print("item " + str(i) + " used, interaction: " + OUTCOME.find_key(outcome))

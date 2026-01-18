@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfmfbybbg7ue0"]
+
+[ext_resource type="Script" uid="uid://oxarxjurep54" path="res://scripts/interactable_object.gd" id="1_gknyc"]
+[ext_resource type="Texture2D" uid="uid://8a374g2sq2nu" path="res://assets_temp/switch.png" id="2_1cvqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t2qe"]
+size = Vector2(107.75, 57)
+
+[node name="InteractableObject" type="Node2D"]
+script = ExtResource("1_gknyc")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.25, -2.5)
+shape = SubResource("RectangleShape2D_1t2qe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.25, -1.25)
+scale = Vector2(0.2607422, 0.2607422)
+texture = ExtResource("2_1cvqn")

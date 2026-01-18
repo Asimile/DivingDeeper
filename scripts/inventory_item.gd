@@ -1,7 +1,7 @@
 extends Node2D
 
-var homePosition = Vector2(50,50) #the canvas location of the items inventory slot
-var index = 0; #the inventory slot this item belongs to
+@export var homePosition: Vector2 #the canvas location of the items inventory slot
+@export var index = 0; #the inventory slot this item belongs to
 var dragging = false
 
 func _ready():
@@ -27,32 +27,31 @@ func on_grab():
 
 # handles and stores the outcome the item being dropped
 var interactionStatus = null
-func on_interaction (_index, status):
-	interactionStatus = status
+func on_interaction (outcome, _index):
+	interactionStatus = outcome
 
 #handle the item being dropped and potentially used
 func on_use():
 	dragging = false
 	
-	#notify interactable items that an item was used 
-	GlobalInteractions.emit_signal("itemUsed", self.position) 
-	
-	#wait one frame for a response signal signifying the item was dropped on an interactable
 	GlobalInteractions.interactionOutcome.connect(on_interaction, CONNECT_ONE_SHOT)
-	await get_tree().process_frame
+	
+	#notify interactable items that an item was used 
+	GlobalInteractions.emit_signal("itemUsed", index) 
+	
+	#wait one physics tick for a response signal signifying the item was dropped on an interactable
+	await get_tree().create_timer(1.0 / Engine.physics_ticks_per_second).timeout
 	
 	#no response; decouple event handler and return to inventory
 	if interactionStatus == null:
 		GlobalInteractions.interactionOutcome.disconnect(on_interaction);
 		self.position = homePosition
-		if GlobalInteractions.debug:
-			GlobalInteractions.emit_signal("interactionOutcome", index, GlobalInteractions.OUTCOME.NONE)
 	
-	if (interactionStatus == GlobalInteractions.OUTCOME.FAIL || interactionStatus == GlobalInteractions.OUTCOME.SUCCESS):
+	if interactionStatus == GlobalInteractions.OUTCOME.FAIL || interactionStatus == GlobalInteractions.OUTCOME.SUCCESS:
 		#return item to correct on screen position
 		self.position = homePosition 
 	
-	if (interactionStatus == GlobalInteractions.OUTCOME.SUCCESS_FINAL):
+	if interactionStatus == GlobalInteractions.OUTCOME.SUCCESS_FINAL:
 		#TODO notify inventory system that item was deleted
 		#TODO have inventory manager delete item instance
-		self.queue_free() #delete self 
+		self.free() #delete self 
