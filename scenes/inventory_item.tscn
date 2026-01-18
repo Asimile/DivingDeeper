@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c0i8uj47ismn4" path="res://scripts/inventory_item.gd" id="1_letey"]
 [ext_resource type="Texture2D" uid="uid://ba5ltta7w51pi" path="res://icon.svg" id="2_y87vu"]
 
-[node name="Interactable" type="Node2D"]
+[node name="InventoryItem" type="Node2D"]
 script = ExtResource("1_letey")
 
 [node name="Button" type="Button" parent="."]
