@@ -38,7 +38,7 @@ func on_use():
 	GlobalInteractions.interactionOutcome.connect(on_interaction, CONNECT_ONE_SHOT)
 	
 	#notify interactable items that an item was used 
-	GlobalInteractions.emit_signal("itemUsed", data.itemID) 
+	GlobalInteractions.emit_signal("itemUsed", data.itemID, data.index) 
 	
 	#wait one physics tick for a response signal signifying the item was dropped on an interactable
 	await get_tree().create_timer(1.0 / Engine.physics_ticks_per_second).timeout
