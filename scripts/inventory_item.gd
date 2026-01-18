@@ -38,12 +38,12 @@ func on_use():
 	GlobalInteractions.emit_signal("itemUsed", self.position) 
 	
 	#wait one frame for a response signal signifying the item was dropped on an interactable
-	GlobalInteractions.inventoryItemInteraction.connect(on_interaction, CONNECT_ONE_SHOT)
+	GlobalInteractions.interactionOutcome.connect(on_interaction, CONNECT_ONE_SHOT)
 	await get_tree().process_frame
 	
 	#no response; decouple event handler and return to inventory
 	if interactionStatus == null:
-		GlobalInteractions.inventoryItemInteraction.disconnect(on_interaction);
+		GlobalInteractions.interactionOutcome.disconnect(on_interaction);
 		self.position = homePosition
 		if GlobalInteractions.debug:
 			GlobalInteractions.emit_signal("interactionOutcome", index, GlobalInteractions.OUTCOME.NONE)
