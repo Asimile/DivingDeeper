@@ -1,10 +1,11 @@
 extends Node2D
 
-var homePosition = Vector2(0,0) #the canvas location of the items inventory slot
+var homePosition = Vector2(50,50) #the canvas location of the items inventory slot
 var index = 0; #the inventory slot this item belongs to
 var dragging = false
 
 func _ready():
+	self.position = homePosition
 	$Button.button_down.connect(on_grab)
 	$Button.button_up.connect(on_use)
 
