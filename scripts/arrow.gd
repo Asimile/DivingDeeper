@@ -1,13 +1,16 @@
 extends Node2D
 
 var start_position: Vector2
-const end_offset: Vector2 = Vector2(20, 0)
+var end_offset: Vector2
 const float_duration: float = 3.0
 var tween: Tween = create_tween()
 @export var destination_scene_path: String
 
 func _ready():
 	start_position = position
+	# Ensures that the arrow will always hover starting towards the the direction it points 
+	# (Pointing right at rotation = 0)
+	end_offset = Vector2(20, 0).rotated(rotation)
 	
 	float_between_points()
 
