@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="DivingDeeper"
+run/main_scene="uid://bfcalalo2txuf"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SceneManager="*res://scenes/scene_manager.tscn"
+GlobalInteractions="*res://scripts/global_interactions.gd"
 GlobalData="*res://scripts/global.gd"
 
 [display]
