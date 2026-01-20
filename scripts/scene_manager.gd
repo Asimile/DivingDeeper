@@ -3,6 +3,8 @@ extends Node
 @onready var room_container = $RoomContainer
 @onready var animation_player = $AnimationPlayer
 
+@onready var footsteps_sfx = $Audio/Footsteps
+
 var current_room: Node
 var is_transitioning := false
 
@@ -33,6 +35,10 @@ func change_room_scene(destination_path: String):
 func fade_and_swap(destination_path: String):
 	# Trigger the animation to bring the FadeRect's opacity up and down
 	animation_player.play("fade")
+	#Players footstep sound effects with a slightly randomized pitch to keep them fresh
+	if (true): # Will need to be replaced with "if (current_room != main menu)" So that footsteps only happen when it makes sense
+		footsteps_sfx.pitch_scale = randf_range(0.8, 1.2)
+		footsteps_sfx.play()
 	#Pauses this function until the animation player emits the finished signal
 	await animation_player.animation_finished
 	
