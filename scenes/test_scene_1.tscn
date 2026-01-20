@@ -7,7 +7,7 @@
 
 [node name="Arrow" parent="." instance=ExtResource("2_c7jcs")]
 position = Vector2(23, 231)
-destination_scene_path = "res://scenes/test_scene_2.tscn"
+destination_scene_path = "res://scenes/submarine_rooms/robot_room.tscn"
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(624, 351.5)
