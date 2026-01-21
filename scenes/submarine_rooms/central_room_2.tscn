@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://ce68hfuq51kje"]
+[gd_scene load_steps=2 format=3 uid="uid://ce68hfuq51kje"]
+
+[ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_wet7r"]
 
 [node name="CentralRoom2" type="Node2D"]
+
+[node name="Arrow" parent="." instance=ExtResource("1_wet7r")]
+position = Vector2(912.99994, 564)
+rotation = 1.5707964
+scale = Vector2(0.47, 4.345)
+destination_scene_path = "res://scenes/test_scene_1.tscn"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 475.0
+offset_top = 197.0
+offset_right = 515.0
+offset_bottom = 220.0
+scale = Vector2(5.5546384, 5.8006477)
+text = "Central 2"

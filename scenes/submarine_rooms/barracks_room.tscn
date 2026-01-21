@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvnaqjgxvki5l"]
+[gd_scene load_steps=2 format=3 uid="uid://1xlbd4kdmgmc"]
 
-[ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_ewq36"]
+[ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_1767k"]
 
-[node name="RobotRoom" type="Node2D"]
+[node name="BarracksRoom" type="Node2D"]
 
-[node name="Arrow" parent="." instance=ExtResource("1_ewq36")]
+[node name="Arrow" parent="." instance=ExtResource("1_1767k")]
 position = Vector2(912.99994, 564)
 rotation = 1.5707964
 scale = Vector2(0.47, 4.345)
@@ -16,4 +16,4 @@ offset_top = 197.0
 offset_right = 515.0
 offset_bottom = 220.0
 scale = Vector2(5.5546384, 5.8006477)
-text = "Robot"
+text = "Barracks"
