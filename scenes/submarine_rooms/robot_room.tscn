@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvnaqjgxvki5l"]
+
+[ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_ewq36"]
+
+[node name="RobotRoom" type="Node2D"]
+
+[node name="CentralArrow" parent="." instance=ExtResource("1_ewq36")]
+position = Vector2(912.99994, 564)
+rotation = 1.5707964
+scale = Vector2(0.47, 4.345)
+destination_scene_path = "res://scenes/submarine_rooms/central_room_1.tscn"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 475.0
+offset_top = 197.0
+offset_right = 515.0
+offset_bottom = 220.0
+scale = Vector2(5.5546384, 5.8006477)
+text = "Robot"

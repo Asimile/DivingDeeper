@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://d08g7j7u4dsqi"]
+
+[ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_6wuwi"]
+
+[node name="CentralRoom1" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 475.0
+offset_top = 197.0
+offset_right = 515.0
+offset_bottom = 220.0
+scale = Vector2(5.5546384, 5.8006477)
+text = "Central 1"
+
+[node name="RobotArrow" parent="." instance=ExtResource("1_6wuwi")]
+position = Vector2(545, 195)
+rotation = 4.712389
+destination_scene_path = "res://scenes/submarine_rooms/robot_room.tscn"
+
+[node name="SupplyArrow" parent="." instance=ExtResource("1_6wuwi")]
+position = Vector2(907, 279)
+destination_scene_path = "res://scenes/submarine_rooms/supply_room.tscn"
+
+[node name="MedicalArrow" parent="." instance=ExtResource("1_6wuwi")]
+position = Vector2(252, 403)
+rotation = 3.1415927
+destination_scene_path = "res://scenes/submarine_rooms/medical_room.tscn"
+
+[node name="CentralArrow" parent="." instance=ExtResource("1_6wuwi")]
+position = Vector2(912.99994, 564)
+rotation = 1.5707964
+scale = Vector2(0.47, 4.345)
+destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
