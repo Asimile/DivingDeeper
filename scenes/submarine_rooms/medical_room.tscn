@@ -17,3 +17,11 @@ offset_right = 515.0
 offset_bottom = 220.0
 scale = Vector2(5.5546384, 5.8006477)
 text = "Medical"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 523.0
+offset_top = 501.0
+offset_right = 563.0
+offset_bottom = 524.0
+scale = Vector2(1.7696835, 1.8905197)
+text = "To central 1"

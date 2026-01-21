@@ -27,3 +27,27 @@ position = Vector2(912.99994, 564)
 rotation = 1.5707964
 scale = Vector2(0.47, 4.345)
 destination_scene_path = "res://scenes/submarine_rooms/central_room_1.tscn"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 97.99988
+offset_top = 173.99994
+offset_right = 188.99988
+offset_bottom = 196.99994
+scale = Vector2(1.7696835, 1.8905197)
+text = "To barracks"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 668.99994
+offset_top = 67.99991
+offset_right = 759.99994
+offset_bottom = 90.99991
+scale = Vector2(1.7696835, 1.8905197)
+text = "To engine"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 523.0
+offset_top = 501.0
+offset_right = 563.0
+offset_bottom = 524.0
+scale = Vector2(1.7696835, 1.8905197)
+text = "To central 1 (West)"

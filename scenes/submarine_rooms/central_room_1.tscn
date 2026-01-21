@@ -31,3 +31,35 @@ position = Vector2(912.99994, 564)
 rotation = 1.5707964
 scale = Vector2(0.47, 4.345)
 destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 108.99988
+offset_top = 214.99994
+offset_right = 199.99988
+offset_bottom = 237.99994
+scale = Vector2(1.7696835, 1.8905197)
+text = "To medical"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 383.99994
+offset_top = 73.99991
+offset_right = 474.99994
+offset_bottom = 96.99991
+scale = Vector2(1.7696835, 1.8905197)
+text = "To robot"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 910.0
+offset_top = 225.99994
+offset_right = 1001.0
+offset_bottom = 248.99994
+scale = Vector2(1.7696835, 1.8905197)
+text = "To supply"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 523.0
+offset_top = 501.0
+offset_right = 563.0
+offset_bottom = 524.0
+scale = Vector2(1.7696835, 1.8905197)
+text = "To central 2 (East)"
