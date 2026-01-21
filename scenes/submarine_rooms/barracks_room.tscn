@@ -4,11 +4,11 @@
 
 [node name="BarracksRoom" type="Node2D"]
 
-[node name="Arrow" parent="." instance=ExtResource("1_1767k")]
+[node name="CentralArrow" parent="." instance=ExtResource("1_1767k")]
 position = Vector2(912.99994, 564)
 rotation = 1.5707964
 scale = Vector2(0.47, 4.345)
-destination_scene_path = "res://scenes/test_scene_1.tscn"
+destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 475.0
