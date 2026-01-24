@@ -5,6 +5,7 @@ extends Node
 signal itemGrabbed(index) #emitted when an item is grabbed in the inventory
 signal itemUsed(idString, index)  #emitted when an item is dropped outside of the inventory
 signal interactionOutcome(outcome, index) #emitted by an interactable when an item is dropped on it
+signal itemFound(idString) #emitted when a pickable item is found, adding it to the inventory and removing it from the world
 
 # Outcome codes for drag/drop interactions
 const OUTCOME = {
@@ -18,6 +19,7 @@ func _ready():
 	connect("itemGrabbed", onItemGrabbed)
 	connect("itemUsed", onItemUsed)
 	connect("interactionOutcome", onItemInteraction)
+	connect("itemFound", onItemFound)
 
 func onItemUsed(idString, i):
 	if debug:
@@ -30,3 +32,8 @@ func onItemGrabbed(i):
 func onItemInteraction(outcome, i):
 	if debug:
 		print("item in slot " + str(i) + " used " + OUTCOME.find_key(outcome))
+
+func onItemFound(idString):
+	if debug:
+		print("item "+idString+" found")
+	
