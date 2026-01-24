@@ -9,8 +9,8 @@ var switchIcon = preload("res://assets_temp/switch.png")
 
 func _ready():
 	var data = [
-		Data.new(0, "wrench", Vector2(40,40), "res://assets_temp/settings.png"),
-		Data.new(1, "item", Vector2(140,40), "res://icon.svg")
+		Data.new("wrench", "res://assets_temp/settings.png", 0, Vector2(40,40)),
+		Data.new("item", "res://icon.svg", 1, Vector2(140,40))
 	]
 	
 	var items = []
