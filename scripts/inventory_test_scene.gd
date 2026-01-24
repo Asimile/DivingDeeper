@@ -18,6 +18,7 @@ func _ready():
 	for i in data.size():
 		items.append(Item.instantiate())
 		items[i].data = data[i]
+		items[i].visible = true
 		add_child(items[i])
 	
 	#add a trash can which only accepts items with the id "item" and deletes them on use

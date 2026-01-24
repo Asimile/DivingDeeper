@@ -8,6 +8,7 @@
 size = Vector2(78, 78)
 
 [node name="InventoryItem" type="Node2D"]
+visible = false
 z_index = 1
 script = ExtResource("1_letey")
 data = ExtResource("2_letey")
