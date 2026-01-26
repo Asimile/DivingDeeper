@@ -1,0 +1,3 @@
+this is the second test dialogue |
+here's non-bar symbols: !@#$%^&*()+=-_`~;:'",<.>/?\ |
+and this is the last line
