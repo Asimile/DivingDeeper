@@ -4,6 +4,11 @@ extends Node
 @onready var animation_player = $AnimationPlayer
 
 @onready var footsteps_sfx = $Audio/Footsteps
+@onready var pre_implosion_sfx = $Audio/PreImplosion
+@onready var implosion_sfx = $Audio/Implosion
+@onready var ambient_sfx = $Audio/Ambient
+
+@onready var implosion_timer = $ImplosionTimer
 
 var current_room: Node
 var is_transitioning := false
@@ -28,6 +33,7 @@ func _ready():
 	
 	#handle opening/closing of PDA
 	GlobalInteractions.togglePDA.connect(toggle_pda)
+	implosion_timer.start()
 
 func change_room_scene(destination_path: String):
 	#After an arrow has been pressed, can't really activate another until transition is done
@@ -81,4 +87,8 @@ func toggle_pda():
 
 func _on_implosion_timer_timeout():
 	#Ends the game with the sub imploding and player dying
-	pass
+	if animation_player.is_playing():
+		await animation_player.animation_finished
+	animation_player.play("implosion")
+	await animation_player.animation_finished
+	get_tree().quit()
