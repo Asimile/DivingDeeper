@@ -52,11 +52,9 @@ func on_use():
 	if interactionStatus == null:
 		GlobalInteractions.interactionOutcome.disconnect(on_interaction);
 		self.position = handPosition
-	
-	#Use suceeded but is repeatable, or use failed. Return item to correct on screen position
-	if interactionStatus == GlobalInteractions.OUTCOME.FAIL || interactionStatus == GlobalInteractions.OUTCOME.SUCCESS:
-		self.position = handPosition
-	
-	#use suceeded and item is used up
-	if interactionStatus == GlobalInteractions.OUTCOME.SUCCESS_FINAL:
+	elif interactionStatus == GlobalInteractions.OUTCOME.SUCCESS_FINAL:
+		#use suceeded and item is used up
 		self.free() #delete self 
+	elif interactionStatus == GlobalInteractions.OUTCOME.FAIL || interactionStatus == GlobalInteractions.OUTCOME.SUCCESS:
+		#Use suceeded but is repeatable, or use failed. Return item to correct on screen position
+		self.position = handPosition
