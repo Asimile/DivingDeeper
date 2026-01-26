@@ -13,11 +13,6 @@ extends Node
 var current_room: Node
 var is_transitioning := false
 
-var currentItem: Node
-
-var InventoryItemData = preload("res://scripts/item_data.gd")
-var InventoryItem = preload("res://scenes/inventory_item.tscn")
-
 func _ready():
 	# Only initialize in SceneManager
 	if self.name != "SceneManager":
@@ -28,11 +23,6 @@ func _ready():
 	current_room = first_room_scene.instantiate()
 	room_container.add_child(current_room)
 	
-	#handle inventory item selection
-	GlobalInteractions.itemSelected.connect(on_inventory_item_selected)
-	
-	#handle opening/closing of PDA
-	GlobalInteractions.togglePDA.connect(toggle_pda)
 	implosion_timer.start()
 
 func change_room_scene(destination_path: String):
@@ -71,19 +61,6 @@ func _swap_room(destination_path: String):
 	var destination_scene := load(destination_path)
 	current_room = destination_scene.instantiate()
 	room_container.add_child(current_room)
-
-func on_inventory_item_selected(itemID):
-	if currentItem == null || not currentItem.data.itemID == itemID:
-		var itemData = InventoryItemData.new(itemID)
-		currentItem = InventoryItem.instantiate()
-		currentItem.data = itemData
-		currentItem.visible = true
-		add_child(currentItem)
-		
-func toggle_pda():
-	GlobalData.pda_open = not GlobalData.pda_open
-	$Pda.visible = GlobalData.pda_open
-	print("PDA is visible ="+ str(GlobalData.pda_open))
 
 func _on_implosion_timer_timeout():
 	#Ends the game with the sub imploding and player dying

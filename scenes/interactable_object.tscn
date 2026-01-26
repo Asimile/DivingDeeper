@@ -1,15 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfmfbybbg7ue0"]
 
 [ext_resource type="Script" uid="uid://oxarxjurep54" path="res://scripts/interactable_object.gd" id="1_gknyc"]
+[ext_resource type="Texture2D" uid="uid://8a374g2sq2nu" path="res://assets_temp/switch.png" id="2_1cvqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1t2qe"]
 size = Vector2(110.125, 107)
-
-[sub_resource type="LabelSettings" id="LabelSettings_1cvqn"]
-line_spacing = 0.0
-font_size = 20
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
 
 [node name="InteractableObject" type="Node2D"]
 script = ExtResource("1_gknyc")
@@ -26,15 +21,6 @@ offset_left = -54.0
 offset_top = -53.0
 offset_right = 55.0
 offset_bottom = 53.0
+texture = ExtResource("2_1cvqn")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="Label" type="Label" parent="."]
-offset_left = -54.0
-offset_top = -54.0
-offset_right = 56.0
-offset_bottom = 53.0
-label_settings = SubResource("LabelSettings_1cvqn")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
