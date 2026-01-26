@@ -10,6 +10,10 @@ func _ready():
 	$Button.button_down.connect(on_grab)
 	$Button.button_up.connect(on_use)
 	$TextureRect.texture = data.spriteTexture
+	
+	#show a debug label containing the itemID if the texture false to load
+	if data.label:
+		$Label.text = data.itemID
 
 func _process(_delta):
 	if dragging:

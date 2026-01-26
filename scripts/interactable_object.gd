@@ -11,6 +11,7 @@ func _ready() -> void:
 	$Area2D.connect("area_exited", on_area_exit)
 	if texture:
 		$TextureRect.texture = texture
+	
 
 func on_area_enter(_obj):
 	GlobalInteractions.connect("itemUsed", on_item_used)

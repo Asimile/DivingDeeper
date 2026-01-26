@@ -10,8 +10,8 @@ var switchIcon = preload("res://assets_temp/switch.png")
 
 func _ready():
 	var data = [
-		Data.new("wrench", "res://assets_temp/settings.png"),
-		Data.new("item", "res://icon.svg"),
+		Data.new("wrench"),
+		Data.new("item"),
 	]
 	
 	var items = []
@@ -50,7 +50,7 @@ func _ready():
 	add_child(switch)
 	
 	var pickable = PickableItem.instantiate()
-	pickable.data = Data.new("icon", "res://icon.svg")
+	pickable.data = Data.new("icon")
 	pickable.visible = true
 	pickable.position = Vector2(200,200)
 	add_child(pickable)
