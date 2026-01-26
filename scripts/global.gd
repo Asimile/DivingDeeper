@@ -1,4 +1,5 @@
 extends Node
+signal youWin()
 
 # Global center for game data needed in many or all scenes
 
@@ -18,6 +19,11 @@ var pda_open = false
 # Keeps track of items still available in the player's inventory. False means that the itme either has not
 # been found, or has been used up. True means it should be visible in the inventory
 var inventory = {
+	"wrench" = false,
+	"key" = false
+}
+
+var itemsCollected = {
 	"wrench" = false,
 	"key" = false
 }

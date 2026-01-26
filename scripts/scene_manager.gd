@@ -34,7 +34,18 @@ func _ready():
 	#handle opening/closing of PDA
 	GlobalInteractions.togglePDA.connect(toggle_pda)
 	implosion_timer.start()
+	
+	#win state
+	GlobalData.youWin.connect(goToWinScene)
 
+func goToWinScene():
+	animation_player.play("fade")
+	#Pauses this function until the animation player emits the finished signal
+	await animation_player.animation_finished
+	_swap_room("res://scenes/submarine_rooms/win.tscn")
+	
+	animation_player.play_backwards()
+	
 func change_room_scene(destination_path: String):
 	#After an arrow has been pressed, can't really activate another until transition is done
 	if is_transitioning:
