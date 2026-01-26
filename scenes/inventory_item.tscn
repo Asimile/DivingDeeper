@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfcalalo2txuf"]
+[gd_scene load_steps=6 format=3 uid="uid://bfcalalo2txuf"]
 
 [ext_resource type="Script" uid="uid://c0i8uj47ismn4" path="res://scripts/inventory_item.gd" id="1_letey"]
 [ext_resource type="Resource" uid="uid://dbbkr84li6w02" path="res://scripts/item_data.tres" id="2_letey"]
@@ -6,6 +6,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_letey"]
 size = Vector2(78, 78)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y87vu"]
+line_spacing = 0.0
+font_size = 20
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="InventoryItem" type="Node2D"]
 visible = false
@@ -40,3 +46,13 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_letey")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -39.0
+offset_top = -40.0
+offset_right = 39.0
+offset_bottom = 39.0
+label_settings = SubResource("LabelSettings_y87vu")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1

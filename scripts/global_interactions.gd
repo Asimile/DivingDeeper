@@ -2,10 +2,12 @@ extends Node
 
 @export var debug = true
 
-signal itemGrabbed(index) #emitted when an item is grabbed in the inventory
-signal itemUsed(idString, index)  #emitted when an item is dropped outside of the inventory
-signal interactionOutcome(outcome, index) #emitted by an interactable when an item is dropped on it
+signal itemGrabbed(idString) #emitted when an item is grabbed in the inventory
+signal itemUsed(idString)  #emitted when an item is dropped outside of the inventory
+signal interactionOutcome(outcome, idString) #emitted by an interactable when an item is dropped on it
 signal itemFound(idString) #emitted when a pickable item is found, adding it to the inventory and removing it from the world
+signal itemSelected(idString) #emitted when the player selects an item in the inventory
+signal togglePDA()
 
 # Outcome codes for drag/drop interactions
 const OUTCOME = {
@@ -20,20 +22,42 @@ func _ready():
 	connect("itemUsed", onItemUsed)
 	connect("interactionOutcome", onItemInteraction)
 	connect("itemFound", onItemFound)
+	connect("itemSelected", onItemSelected)
+	connect("togglePDA", onTogglePDA)
 
-func onItemUsed(idString, i):
+func onItemUsed(idString):
 	if debug:
-		print (idString+" in slot "+str(i)+" dropped")
+		print ("item "+idString+" dropped")
 	
-func onItemGrabbed(i):
+func onItemGrabbed(idString):
 	if debug: 
-		print("item in slot "+str(i)+" grabbed")
+		print("item "+idString+" grabbed")
 
-func onItemInteraction(outcome, i):
+func onItemInteraction(outcome, idString):
+	if(outcome == OUTCOME.SUCCESS_FINAL):
+		GlobalData.inventory[idString] = false
+		GlobalData.currentItem = ""
+		
 	if debug:
-		print("item in slot " + str(i) + " used " + OUTCOME.find_key(outcome))
+		print("item " + idString + " used; " + OUTCOME.find_key(outcome))
 
 func onItemFound(idString):
+	GlobalData.inventory[idString] = true
+	GlobalData.game_data["item_"+idString] = false
+	if GlobalData.currentItem == "":
+		emit_signal("itemSelected", idString)
+		
 	if debug:
 		print("item "+idString+" found")
-	
+
+func onItemSelected(idString):
+	print("Item was selected")
+	GlobalData.currentItem = idString
+	if GlobalData.pda_open:
+		GlobalInteractions.togglePDA.emit()
+	if debug:
+		print("item "+idString+" selected from inventory")
+		
+func onTogglePDA():
+	if debug:
+		print("PDA toggled")

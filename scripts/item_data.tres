@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dbbkr84li6w02"]
 
 [ext_resource type="Script" uid="uid://d4nb42ejg57kh" path="res://scripts/item_data.gd" id="1_htebj"]
-[ext_resource type="Texture2D" uid="uid://b1mlqea2q3lp8" path="res://assets_temp/settings.png" id="2_saqv6"]
+[ext_resource type="Texture2D" uid="uid://bgejslb3q24og" path="res://assets/sprites/Hand_Pointing_Ico.png" id="2_saqv6"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_htebj")
-homePosition = Vector2(40, 40)
+itemID = "key"
 spriteTexture = ExtResource("2_saqv6")
