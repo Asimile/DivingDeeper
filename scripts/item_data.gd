@@ -7,9 +7,10 @@ var label = false
 
 func _init(id = "defualtItem"):
 	itemID = id
-	if not ResourceLoader.exists("res://assets/sprites/"+itemID+".png"):
+	var texturePath = "res://assets/sprites/"+itemID+".png"
+	if ResourceLoader.exists(texturePath):
+		spriteTexture = load(texturePath)
+	else:
 		spriteTexture = load("res://icon.svg")
 		label = true #show a debug label containing the itemID if the texture false to load
-		push_warning("No sprite exists for '"+itemID+"',")
-	else:
-		spriteTexture = load("res://assets/sprites/"+itemID+".png")
+		push_warning("No sprite exists for item '"+itemID+"',")

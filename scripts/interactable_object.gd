@@ -1,7 +1,6 @@
 extends Node2D
 
-@export var objectName = "toggle"
-@export var texture: Resource
+@export var objectName = "interactable"
 
 # override with custom logic; must emit interactionOutcomeSignal
 var on_interaction : Callable
@@ -9,9 +8,18 @@ var on_interaction : Callable
 func _ready() -> void:
 	$Area2D.connect("area_entered", on_area_enter)
 	$Area2D.connect("area_exited", on_area_exit)
-	if texture:
-		$TextureRect.texture = texture
 	
+	var texture
+	var texturePath = "res://assets/sprites/"+objectName+".png"
+	
+	if ResourceLoader.exists(texturePath):
+		texture = load(texturePath)
+	else:
+		texture = load("res://icon.svg")
+		$Label.text = objectName
+		push_warning("No sprite exists for object '"+objectName+"',")
+		
+	$TextureRect.texture = texture
 
 func on_area_enter(_obj):
 	GlobalInteractions.connect("itemUsed", on_item_used)

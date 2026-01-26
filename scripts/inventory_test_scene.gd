@@ -5,9 +5,6 @@ var Item = preload("res://scenes/inventory_item.tscn")
 var Interactable = preload("res://scenes/interactable_object.tscn")
 var PickableItem = preload("res://scenes/pickable_item.tscn")
 
-var trashIcon = preload("res://assets_temp/trash.png")
-var switchIcon = preload("res://assets_temp/switch.png")
-
 func _ready():
 	var data = [
 		Data.new("wrench"),
@@ -24,7 +21,7 @@ func _ready():
 	
 	#add a trash can which only accepts items with the id "item" and deletes them on use
 	var trash = Interactable.instantiate()
-	trash.texture = trashIcon
+	trash.objectName = "trashcan"
 	trash.position = Vector2(250,200)
 	
 	trash.on_interaction = func(idString):
@@ -37,7 +34,7 @@ func _ready():
 	
 	#add a switch that rotates when the wrench is used on it
 	var switch = Interactable.instantiate()
-	switch.texture = switchIcon
+	switch.objectName = "switch"
 	switch.position = Vector2(350,200)
 	
 	switch.on_interaction = func(idString):
