@@ -4,6 +4,11 @@ extends Node
 @onready var animation_player = $AnimationPlayer
 
 @onready var footsteps_sfx = $Audio/Footsteps
+@onready var pre_implosion_sfx = $Audio/PreImplosion
+@onready var implosion_sfx = $Audio/Implosion
+@onready var ambient_sfx = $Audio/Ambient
+
+@onready var implosion_timer = $ImplosionTimer
 
 var current_room: Node
 var is_transitioning := false
@@ -17,6 +22,8 @@ func _ready():
 	var first_room_scene := load("res://scenes/test_scene_1.tscn")
 	current_room = first_room_scene.instantiate()
 	room_container.add_child(current_room)
+	
+	implosion_timer.start()
 
 func change_room_scene(destination_path: String):
 	#After an arrow has been pressed, can't really activate another until transition is done
@@ -57,4 +64,8 @@ func _swap_room(destination_path: String):
 
 func _on_implosion_timer_timeout():
 	#Ends the game with the sub imploding and player dying
-	pass
+	if animation_player.is_playing():
+		await animation_player.animation_finished
+	animation_player.play("implosion")
+	await animation_player.animation_finished
+	get_tree().quit()

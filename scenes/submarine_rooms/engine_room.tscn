@@ -5,11 +5,10 @@
 
 [node name="EngineRoom" type="Node2D"]
 
-[node name="CentralArrow" parent="." instance=ExtResource("1_eaiuv")]
-position = Vector2(912.99994, 564)
-rotation = 1.5707964
-scale = Vector2(0.47, 4.345)
-destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
+[node name="MaintenanceArea2" type="Sprite2D" parent="."]
+position = Vector2(600, 450)
+scale = Vector2(0.625, 0.62500006)
+texture = ExtResource("2_swflw")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 475.0
@@ -27,7 +26,8 @@ offset_bottom = 524.0
 scale = Vector2(1.7696835, 1.8905197)
 text = "To central 2"
 
-[node name="MaintenanceArea2" type="Sprite2D" parent="."]
-position = Vector2(600, 450)
-scale = Vector2(0.625, 0.62500006)
-texture = ExtResource("2_swflw")
+[node name="CentralArrow" parent="." instance=ExtResource("1_eaiuv")]
+position = Vector2(912.99994, 564)
+rotation = 1.5707964
+scale = Vector2(0.47, 4.345)
+destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
