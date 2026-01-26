@@ -1,13 +1,16 @@
 class_name ItemData
 extends Resource
 
-@export var index: int # inventory slot the item belongs to
 @export var itemID: String # identifier for which object it is
-@export var homePosition: Vector2 # position on screen of inventory slot
 @export var spriteTexture: Resource # path to texture resource
+var label = false 
 
-func _init(id = "tool", texture = "res://icon.svg", pos=Vector2(0,0), i=0):
-	index = i
+func _init(id = "defualtItem"):
 	itemID = id
-	homePosition = pos
-	spriteTexture = load(texture)
+	var texturePath = "res://assets/sprites/"+itemID+".png"
+	if ResourceLoader.exists(texturePath):
+		spriteTexture = load(texturePath)
+	else:
+		spriteTexture = load("res://icon.svg")
+		label = true #show a debug label containing the itemID if the texture false to load
+		push_warning("No sprite exists for item '"+itemID+"',")

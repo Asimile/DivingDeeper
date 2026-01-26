@@ -5,13 +5,10 @@ var Item = preload("res://scenes/inventory_item.tscn")
 var Interactable = preload("res://scenes/interactable_object.tscn")
 var PickableItem = preload("res://scenes/pickable_item.tscn")
 
-var trashIcon = preload("res://assets_temp/trash.png")
-var switchIcon = preload("res://assets_temp/switch.png")
-
 func _ready():
 	var data = [
-		Data.new("wrench", "res://assets_temp/settings.png", Vector2(40,40), 0),
-		Data.new("item", "res://icon.svg", Vector2(140,40), 1),
+		Data.new("wrench"),
+		Data.new("item"),
 	]
 	
 	var items = []
@@ -24,32 +21,33 @@ func _ready():
 	
 	#add a trash can which only accepts items with the id "item" and deletes them on use
 	var trash = Interactable.instantiate()
-	trash.texture = trashIcon
-	trash.translate(Vector2(250,200))
+	trash.objectName = "trashcan"
+	trash.position = Vector2(250,200)
 	
-	trash.on_interaction = func(idString, index):
+	trash.on_interaction = func(idString):
 		if(idString == "item"):
-			GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.SUCCESS_FINAL, index)
+			GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.SUCCESS_FINAL, idString)
 		else:
-			GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.FAIL, index)
+			GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.FAIL, idString)
 	
 	add_child(trash)
 	
 	#add a switch that rotates when the wrench is used on it
 	var switch = Interactable.instantiate()
-	switch.texture = switchIcon
-	switch.translate(Vector2(350,200))
+	switch.objectName = "switch"
+	switch.position = Vector2(350,200)
 	
-	switch.on_interaction = func(idString, index):
+	switch.on_interaction = func(idString):
 		if(idString == "wrench"):
-			GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.SUCCESS, index)
+			GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.SUCCESS, idString)
 			switch.rotate(PI)
 		else:
-			GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.FAIL, index)
+			GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.FAIL, idString)
 			
 	add_child(switch)
 	
 	var pickable = PickableItem.instantiate()
-	pickable.data = Data.new("icon", "res://icon.svg", Vector2(400,200))
+	pickable.data = Data.new("pickable")
 	pickable.visible = true
+	pickable.position = Vector2(200,200)
 	add_child(pickable)
