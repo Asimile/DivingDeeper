@@ -10,6 +10,11 @@ var game_data = {
 	"power_on" = true
 }
 
+#stores the item the player is holding. must match an itemID in inventory, and that ID must be true (found)
+#empty string means no item held
+var currentItem = ""
+var pda_open = false
+
 # Keeps track of items still available in the player's inventory. False means that the itme either has not
 # been found, or has been used up. True means it should be visible in the inventory
 var inventory = {

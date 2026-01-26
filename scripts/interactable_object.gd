@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var objectName = "interactable"
+@export var itemRequired = ""
+@export var deleteItemAfter = false
 
 # override with custom logic; must emit interactionOutcomeSignal
 var on_interaction : Callable
@@ -31,4 +33,10 @@ func on_item_used(idString):
 	if on_interaction:
 		on_interaction.call(idString)
 	else:
-		GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.FAIL, idString)
+		if(idString == itemRequired):
+			if(deleteItemAfter):
+				GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.SUCCESS_FINAL, idString)
+			else:
+				GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.SUCCESS, idString)
+		else:
+			GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.FAIL, idString)

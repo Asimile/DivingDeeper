@@ -11,6 +11,8 @@ func _ready():
 	$Button.button_up.connect(on_use)
 	$TextureRect.texture = data.spriteTexture
 	
+	GlobalInteractions.itemSelected.connect(on_item_selected)
+	
 	#show a debug label containing the itemID if the texture false to load
 	if data.label:
 		$Label.text = data.itemID
@@ -58,3 +60,8 @@ func on_use():
 	elif interactionStatus == GlobalInteractions.OUTCOME.FAIL || interactionStatus == GlobalInteractions.OUTCOME.SUCCESS:
 		#Use suceeded but is repeatable, or use failed. Return item to correct on screen position
 		self.position = handPosition
+
+func on_item_selected(idString):
+	if not idString == data.itemID:
+		# a new item was selected via the PDA
+		self.queue_free()
