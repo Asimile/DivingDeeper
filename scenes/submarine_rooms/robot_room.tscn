@@ -1,13 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvnaqjgxvki5l"]
+[gd_scene load_steps=10 format=3 uid="uid://bvnaqjgxvki5l"]
 
 [ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_ewq36"]
 [ext_resource type="Texture2D" uid="uid://b5lyvonfnxnlc" path="res://assets/backgrounds/robot_room.jpg" id="2_c83f2"]
 [ext_resource type="Texture2D" uid="uid://bqtgmue77u1k0" path="res://assets/sprites/robot.png" id="3_8amjp"]
 [ext_resource type="Script" uid="uid://cgcckriujbjc8" path="res://scripts/robot_sprite.gd" id="4_6tt7h"]
-[ext_resource type="PackedScene" uid="uid://wksf726cdc51" path="res://scenes/pickable_item.tscn" id="5_d30nx"]
-[ext_resource type="Script" uid="uid://d4nb42ejg57kh" path="res://scripts/item_data.gd" id="6_gcw4c"]
 [ext_resource type="PackedScene" uid="uid://cfmfbybbg7ue0" path="res://scenes/interactable_object.tscn" id="7_gcw4c"]
-[ext_resource type="Texture2D" uid="uid://bgejslb3q24og" path="res://assets/sprites/Hand_Pointing_Ico.png" id="7_otm13"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tt7h"]
 atlas = ExtResource("3_8amjp")
@@ -38,16 +35,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Resource" id="Resource_otm13"]
-script = ExtResource("6_gcw4c")
-itemID = "wrench"
-
-[sub_resource type="Resource" id="Resource_j5klg"]
-resource_local_to_scene = true
-script = ExtResource("6_gcw4c")
-itemID = "key"
-spriteTexture = ExtResource("7_otm13")
-
 [node name="RobotRoom" type="Node2D"]
 
 [node name="CentralArrow" parent="." instance=ExtResource("1_ewq36")]
@@ -76,14 +63,6 @@ position = Vector2(610, 228)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8amjp")
 script = ExtResource("4_6tt7h")
-
-[node name="Wrench" parent="." instance=ExtResource("5_d30nx")]
-data = SubResource("Resource_otm13")
-pos = Vector2(300, 0)
-
-[node name="PickableItem" parent="." instance=ExtResource("5_d30nx")]
-position = Vector2(885, 405)
-data = SubResource("Resource_j5klg")
 
 [node name="InteractableObject" parent="." instance=ExtResource("7_gcw4c")]
 position = Vector2(357, 401)

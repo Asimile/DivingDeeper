@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://1xlbd4kdmgmc"]
+[gd_scene load_steps=7 format=3 uid="uid://1xlbd4kdmgmc"]
 
 [ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_1767k"]
 [ext_resource type="Texture2D" uid="uid://bmmxlb62sncw5" path="res://assets/backgrounds/misc2.jpg" id="2_fyuh5"]
+[ext_resource type="PackedScene" uid="uid://wksf726cdc51" path="res://scenes/pickable_item.tscn" id="3_kyuuc"]
+[ext_resource type="Script" uid="uid://d4nb42ejg57kh" path="res://scripts/item_data.gd" id="4_kyuuc"]
+[ext_resource type="Texture2D" uid="uid://b1tctr3671xnu" path="res://assets/sprites/screwdriver.png" id="5_fpw7g"]
+
+[sub_resource type="Resource" id="Resource_fpw7g"]
+resource_local_to_scene = true
+script = ExtResource("4_kyuuc")
+itemID = "screwdriver"
+spriteTexture = ExtResource("5_fpw7g")
 
 [node name="BarracksRoom" type="Node2D"]
 
@@ -33,3 +42,8 @@ z_index = -1
 position = Vector2(600, 449.99997)
 scale = Vector2(0.625, 0.62499994)
 texture = ExtResource("2_fyuh5")
+
+[node name="PickableItem" parent="." instance=ExtResource("3_kyuuc")]
+position = Vector2(703, 446)
+data = SubResource("Resource_fpw7g")
+pos = Vector2(703, 446)

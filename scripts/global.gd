@@ -7,7 +7,8 @@ extends Node
 var game_data = {
 	"item_wrench" = true,
 	"item_key" = true,
-	"power_on" = true
+	"item_screwdriver" = true,
+	"item_wires" = true
 }
 
 #stores the item the player is holding. must match an itemID in inventory, and that ID must be true (found)
@@ -19,5 +20,7 @@ var pda_open = false
 # been found, or has been used up. True means it should be visible in the inventory
 var inventory = {
 	"wrench" = false,
-	"key" = false
+	"key" = false,
+	"screwdriver" = false,
+	"wires" = false
 }

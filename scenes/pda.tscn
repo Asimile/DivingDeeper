@@ -39,9 +39,13 @@ displayName = "Key"
 
 [node name="PdaButton3" parent="." instance=ExtResource("1_7vl7m")]
 position = Vector2(509, 316)
+itemID = "screwdriver"
+displayName = "screwdriver"
 
 [node name="PdaButton4" parent="." instance=ExtResource("1_7vl7m")]
 position = Vector2(621, 315)
+itemID = "wires"
+displayName = "wires"
 
 [node name="PdaButton5" parent="." instance=ExtResource("1_7vl7m")]
 position = Vector2(506, 428)

@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://3gew35jdnbb3"]
+[gd_scene load_steps=7 format=3 uid="uid://3gew35jdnbb3"]
 
 [ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_eaiuv"]
 [ext_resource type="Texture2D" uid="uid://b86anwrj5tw7q" path="res://assets/backgrounds/maintenance_area_2.jpg" id="2_swflw"]
+[ext_resource type="PackedScene" uid="uid://wksf726cdc51" path="res://scenes/pickable_item.tscn" id="3_108u0"]
+[ext_resource type="Script" uid="uid://d4nb42ejg57kh" path="res://scripts/item_data.gd" id="4_7n8as"]
+[ext_resource type="Texture2D" uid="uid://cxkhx2u37dtdx" path="res://assets/sprites/wrench.png" id="5_7n8as"]
+
+[sub_resource type="Resource" id="Resource_mih55"]
+script = ExtResource("4_7n8as")
+itemID = "wrench"
+spriteTexture = ExtResource("5_7n8as")
 
 [node name="EngineRoom" type="Node2D"]
 
@@ -11,6 +19,7 @@ scale = Vector2(0.625, 0.62500006)
 texture = ExtResource("2_swflw")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 475.0
 offset_top = 197.0
 offset_right = 515.0
@@ -19,15 +28,21 @@ scale = Vector2(5.5546384, 5.8006477)
 text = "Engine"
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 523.0
-offset_top = 501.0
-offset_right = 563.0
-offset_bottom = 524.0
+visible = false
+offset_left = 524.0
+offset_top = 709.0
+offset_right = 615.0
+offset_bottom = 732.0
 scale = Vector2(1.7696835, 1.8905197)
 text = "To central 2"
 
 [node name="CentralArrow" parent="." instance=ExtResource("1_eaiuv")]
-position = Vector2(912.99994, 564)
+position = Vector2(913.99994, 772)
 rotation = 1.5707964
 scale = Vector2(0.47, 4.345)
 destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
+
+[node name="Wrench" parent="." instance=ExtResource("3_108u0")]
+position = Vector2(575, 578)
+data = SubResource("Resource_mih55")
+pos = Vector2(575, 575)
