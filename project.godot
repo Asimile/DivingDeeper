@@ -11,18 +11,24 @@ config_version=5
 [application]
 
 config/name="DivingDeeper"
-run/main_scene="uid://bgd0l4nu2v2tw"
+run/main_scene="uid://bfcalalo2txuf"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SceneManager="*res://scenes/scene_manager.tscn"
+GlobalInteractions="*res://scripts/global_interactions.gd"
 GlobalData="*res://scripts/global.gd"
 
-[dotnet]
+[display]
 
-project/assembly_name="DivingDeeper"
+window/size/viewport_width=1200
+window/size/viewport_height=900
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://c8gjfiajypur1"
 
 [rendering]
 

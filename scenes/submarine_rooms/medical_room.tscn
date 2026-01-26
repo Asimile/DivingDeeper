@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnrfs0nowae7i"]
+
+[ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_q7cn8"]
+[ext_resource type="Texture2D" uid="uid://c6yhw17s2yfkk" path="res://assets/backgrounds/door_to_quarters.jpg" id="2_3kyjt"]
+
+[node name="MedicalRoom" type="Node2D"]
+
+[node name="CentralArrow" parent="." instance=ExtResource("1_q7cn8")]
+position = Vector2(888, 780)
+rotation = 1.5707964
+scale = Vector2(0.47, 4.345)
+destination_scene_path = "res://scenes/submarine_rooms/central_room_1.tscn"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 159.99997
+offset_top = 59.0
+offset_right = 325.99997
+offset_bottom = 82.0
+scale = Vector2(5.5546384, 5.8006477)
+text = "Medical (placeholder)"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 523.0
+offset_top = 501.0
+offset_right = 563.0
+offset_bottom = 524.0
+scale = Vector2(1.7696835, 1.8905197)
+text = "To central 1"
+
+[node name="DoorToQuarters" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(600, 450)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_3kyjt")

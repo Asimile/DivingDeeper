@@ -1,0 +1,21 @@
+extends Node2D
+
+var Global = preload("res://scripts/global.gd")
+@export var data: Resource
+
+func _ready():
+	assert(data != null, "no data assigned to pickable item")
+	self.position = data.homePosition
+	$TextureRect.texture = data.spriteTexture
+	
+func _input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			on_press()
+
+func on_press():
+	GlobalInteractions.emit_signal("itemFound", data.itemID)
+	self.queue_free()
+
+func _process(_delta: float) -> void:
+	pass

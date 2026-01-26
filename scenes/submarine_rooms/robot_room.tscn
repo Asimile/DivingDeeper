@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvnaqjgxvki5l"]
+
+[ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_ewq36"]
+[ext_resource type="Texture2D" uid="uid://b5lyvonfnxnlc" path="res://assets/backgrounds/robot_room.jpg" id="2_c83f2"]
+[ext_resource type="Texture2D" uid="uid://bqtgmue77u1k0" path="res://assets/sprites/robot.png" id="3_8amjp"]
+[ext_resource type="Script" uid="uid://cgcckriujbjc8" path="res://scripts/robot_sprite.gd" id="4_6tt7h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tt7h"]
+atlas = ExtResource("3_8amjp")
+region = Rect2(0, 0, 538, 573)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q027j"]
+atlas = ExtResource("3_8amjp")
+region = Rect2(538, 0, 538, 573)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d30nx"]
+atlas = ExtResource("3_8amjp")
+region = Rect2(1076, 0, 538, 573)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8amjp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tt7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q027j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d30nx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RobotRoom" type="Node2D"]
+
+[node name="CentralArrow" parent="." instance=ExtResource("1_ewq36")]
+position = Vector2(916.99994, 801)
+rotation = 1.5707964
+scale = Vector2(0.47, 4.345)
+destination_scene_path = "res://scenes/submarine_rooms/central_room_1.tscn"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 527.0
+offset_top = 738.0
+offset_right = 618.0
+offset_bottom = 761.0
+scale = Vector2(1.7696835, 1.8905197)
+text = "To central 1"
+
+[node name="RobotRoom" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(600, 450.00003)
+scale = Vector2(0.625, 0.62500006)
+texture = ExtResource("2_c83f2")
+
+[node name="RobotSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(610, 228)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8amjp")
+script = ExtResource("4_6tt7h")

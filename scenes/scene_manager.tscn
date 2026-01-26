@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c41d30gdf3eis"]
+[gd_scene load_steps=9 format=3 uid="uid://c41d30gdf3eis"]
 
 [ext_resource type="Script" uid="uid://bhxi3828do551" path="res://scripts/scene_manager.gd" id="1_57mwd"]
+[ext_resource type="AudioStream" uid="uid://cr7blxxtrorho" path="res://assets/audio/footsteps.ogg" id="2_65mdo"]
+[ext_resource type="AudioStream" uid="uid://ds0xqsis4qoq3" path="res://assets/audio/pre_implosion.ogg" id="3_h7lqg"]
+[ext_resource type="AudioStream" uid="uid://db5aiwbytva7n" path="res://assets/audio/implosion.ogg" id="4_q7wi7"]
 
 [sub_resource type="Animation" id="Animation_65mdo"]
 length = 0.001
@@ -15,6 +18,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeRect:color:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_we8k5"]
@@ -33,10 +48,57 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_6k21d"]
+resource_name = "implosion"
+length = 10.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/PreImplosion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_h7lqg")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/Implosion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_q7wi7")
+}],
+"times": PackedFloat32Array(4.0333333)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeRect:color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.266667),
+"transitions": PackedFloat32Array(265.02872, 1),
+"update": 1,
+"values": [0.0, 1.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b81s6"]
 _data = {
 &"RESET": SubResource("Animation_65mdo"),
-&"fade": SubResource("Animation_we8k5")
+&"fade": SubResource("Animation_we8k5"),
+&"implosion": SubResource("Animation_6k21d")
 }
 
 [node name="SceneManager" type="Node"]
@@ -45,6 +107,19 @@ script = ExtResource("1_57mwd")
 [node name="ImplosionTimer" type="Timer" parent="."]
 wait_time = 1500.0
 one_shot = true
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_65mdo")
+volume_db = -5.0
+
+[node name="PreImplosion" type="AudioStreamPlayer" parent="Audio"]
+volume_db = -2.0
+
+[node name="Implosion" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="Ambient" type="AudioStreamPlayer" parent="Audio"]
 
 [node name="RoomContainer" type="Node" parent="."]
 
