@@ -47,7 +47,7 @@ func _ready():
 	add_child(switch)
 	
 	var pickable = PickableItem.instantiate()
-	pickable.data = Data.new("icon")
+	pickable.data = Data.new("pickable")
 	pickable.visible = true
 	pickable.position = Vector2(200,200)
 	add_child(pickable)
