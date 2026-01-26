@@ -2,10 +2,11 @@ extends Node2D
 
 var Global = preload("res://scripts/global.gd")
 @export var data: Resource
+@export var pos = Vector2(0,0)
 
 func _ready():
 	assert(data != null, "no data assigned to pickable item")
-	self.position = data.homePosition
+	self.position = pos
 	$TextureRect.texture = data.spriteTexture
 	
 func _input_event(_viewport, event, _shape_idx):

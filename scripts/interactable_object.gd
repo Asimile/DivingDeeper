@@ -18,8 +18,8 @@ func on_area_enter(_obj):
 func on_area_exit(_obj):
 	GlobalInteractions.disconnect("itemUsed", on_item_used)
 
-func on_item_used(idString, _index):
+func on_item_used(idString):
 	if on_interaction:
-		on_interaction.call(idString, _index)
+		on_interaction.call(idString)
 	else:
 		GlobalInteractions.emit_signal("interactionOutcome", GlobalInteractions.OUTCOME.FAIL, idString)
