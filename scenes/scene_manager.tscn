@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c41d30gdf3eis"]
+[gd_scene load_steps=11 format=3 uid="uid://c41d30gdf3eis"]
 
 [ext_resource type="Script" uid="uid://bhxi3828do551" path="res://scripts/scene_manager.gd" id="1_57mwd"]
 [ext_resource type="AudioStream" uid="uid://cr7blxxtrorho" path="res://assets/audio/footsteps.ogg" id="2_65mdo"]
 [ext_resource type="PackedScene" uid="uid://dot7i57f0ocbj" path="res://scenes/pda_open_close.tscn" id="3_b81s6"]
-[ext_resource type="PackedScene" uid="uid://bj8g6u5mnkmo3" path="res://scenes/pda.tscn" id="4_h7lqg"]
-
-[ext_resource type="Script" uid="uid://bhxi3828do551" path="res://scripts/scene_manager.gd" id="1_57mwd"]
-[ext_resource type="AudioStream" uid="uid://cr7blxxtrorho" path="res://assets/audio/footsteps.ogg" id="2_65mdo"]
 [ext_resource type="AudioStream" uid="uid://ds0xqsis4qoq3" path="res://assets/audio/pre_implosion.ogg" id="3_h7lqg"]
+[ext_resource type="PackedScene" uid="uid://dnqflywhltp5o" path="res://scenes/pda.tscn" id="4_h7lqg"]
 [ext_resource type="AudioStream" uid="uid://db5aiwbytva7n" path="res://assets/audio/implosion.ogg" id="4_q7wi7"]
 
 [sub_resource type="Animation" id="Animation_65mdo"]
@@ -110,8 +107,13 @@ _data = {
 script = ExtResource("1_57mwd")
 
 [node name="ImplosionTimer" type="Timer" parent="."]
-wait_time = 1500.0
+wait_time = 180.0
 one_shot = true
+
+[node name="CreakTimer" type="Timer" parent="."]
+wait_time = 59.0
+
+[node name="CreakTimer2" type="Timer" parent="."]
 
 [node name="Audio" type="Node" parent="."]
 
@@ -149,9 +151,10 @@ color = Color(0, 0, 0, 0)
 
 [node name="Pda" parent="." instance=ExtResource("4_h7lqg")]
 visible = false
-script = null
 
 [node name="PdaOpenClose" parent="." instance=ExtResource("3_b81s6")]
 z_index = 3
 
 [connection signal="timeout" from="ImplosionTimer" to="." method="_on_implosion_timer_timeout"]
+[connection signal="timeout" from="CreakTimer" to="." method="_on_creak_timer_timeout"]
+[connection signal="timeout" from="CreakTimer2" to="." method="_on_creak_timer_2_timeout"]

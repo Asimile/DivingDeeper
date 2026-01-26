@@ -9,6 +9,8 @@ extends Node
 @onready var ambient_sfx = $Audio/Ambient
 
 @onready var implosion_timer = $ImplosionTimer
+@onready var creak_timer = $CreakTimer
+@onready var creak_timer2 = $CreakTimer2
 
 var current_room: Node
 var is_transitioning := false
@@ -34,6 +36,7 @@ func _ready():
 	#handle opening/closing of PDA
 	GlobalInteractions.togglePDA.connect(toggle_pda)
 	implosion_timer.start()
+	creak_timer.start()
 
 func change_room_scene(destination_path: String):
 	#After an arrow has been pressed, can't really activate another until transition is done
@@ -92,3 +95,14 @@ func _on_implosion_timer_timeout():
 	animation_player.play("implosion")
 	await animation_player.animation_finished
 	get_tree().quit()
+
+
+func _on_creak_timer_timeout():
+	ambient_sfx.stream = "res://assets/audio/long_creak.ogg"
+	ambient_sfx.play()
+	creak_timer2.start()
+
+
+func _on_creak_timer_2_timeout():
+	ambient_sfx.stream = "res://assets/audio/echoey_metal_groan.ogg"
+	ambient_sfx.play()
