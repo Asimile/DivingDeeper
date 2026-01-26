@@ -2,5 +2,5 @@ extends AnimatedSprite2D
 
 @onready var sprite = $"."
 
-func _process(delta: float) -> void:
+func _process(_delta) -> void:
 	sprite.play("default")

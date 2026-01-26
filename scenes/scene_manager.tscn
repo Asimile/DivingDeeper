@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c41d30gdf3eis"]
+[gd_scene load_steps=10 format=3 uid="uid://c41d30gdf3eis"]
 
 [ext_resource type="Script" uid="uid://bhxi3828do551" path="res://scripts/scene_manager.gd" id="1_57mwd"]
 [ext_resource type="AudioStream" uid="uid://cr7blxxtrorho" path="res://assets/audio/footsteps.ogg" id="2_65mdo"]
 [ext_resource type="AudioStream" uid="uid://ds0xqsis4qoq3" path="res://assets/audio/pre_implosion.ogg" id="3_h7lqg"]
+[ext_resource type="AudioStream" uid="uid://bpi00cddkb4pn" path="res://assets/audio/underwater-ambience.ogg" id="3_q7wi7"]
 [ext_resource type="AudioStream" uid="uid://db5aiwbytva7n" path="res://assets/audio/implosion.ogg" id="4_q7wi7"]
 
 [sub_resource type="Animation" id="Animation_65mdo"]
@@ -120,6 +121,10 @@ volume_db = -2.0
 [node name="Implosion" type="AudioStreamPlayer" parent="Audio"]
 
 [node name="Ambient" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_q7wi7")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio"]
 
 [node name="RoomContainer" type="Node" parent="."]
 

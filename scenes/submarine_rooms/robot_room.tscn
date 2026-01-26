@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvnaqjgxvki5l"]
+[gd_scene load_steps=10 format=3 uid="uid://bvnaqjgxvki5l"]
 
 [ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_ewq36"]
 [ext_resource type="Texture2D" uid="uid://b5lyvonfnxnlc" path="res://assets/backgrounds/robot_room.jpg" id="2_c83f2"]
 [ext_resource type="Texture2D" uid="uid://bqtgmue77u1k0" path="res://assets/sprites/robot.png" id="3_8amjp"]
 [ext_resource type="Script" uid="uid://cgcckriujbjc8" path="res://scripts/robot_sprite.gd" id="4_6tt7h"]
+[ext_resource type="AudioStream" uid="uid://c6gflyh13xwl7" path="res://assets/audio/robot.ogg" id="5_q027j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tt7h"]
 atlas = ExtResource("3_8amjp")
@@ -62,3 +63,8 @@ position = Vector2(610, 228)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8amjp")
 script = ExtResource("4_6tt7h")
+
+[node name="RobotAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q027j")
+volume_db = -11.506
+autoplay = true
