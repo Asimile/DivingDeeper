@@ -1,10 +1,99 @@
-[gd_scene load_steps=2 format=3 uid="uid://d08g7j7u4dsqi"]
+[gd_scene load_steps=17 format=3 uid="uid://d08g7j7u4dsqi"]
 
 [ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_6wuwi"]
+[ext_resource type="Texture2D" uid="uid://jaeb5y3pvvs" path="res://assets/backgrounds/view_of_robot_room.jpg" id="2_ru3lm"]
+[ext_resource type="Texture2D" uid="uid://cm2tobpo448me" path="res://assets/sprites/robo_eye_distant.png" id="3_cov2f"]
+[ext_resource type="Script" uid="uid://rrq34hkk56ls" path="res://scripts/distant_eye.gd" id="4_cov2f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulf1t"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(0, 0, 61, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj512"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(61, 0, 61, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ajoc"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(122, 0, 61, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eovv3"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(183, 0, 61, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4777"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(244, 0, 61, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4y4q"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(305, 0, 61, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5vr7"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(366, 0, 61, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u72v5"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(427, 0, 61, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xklkt"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(488, 0, 61, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs7n3"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(549, 0, 61, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl750"]
+atlas = ExtResource("3_cov2f")
+region = Rect2(610, 0, 61, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rck5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulf1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj512")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ajoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eovv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4777")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4y4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5vr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u72v5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xklkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs7n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl750")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="CentralRoom1" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 475.0
 offset_top = 197.0
 offset_right = 515.0
@@ -13,53 +102,64 @@ scale = Vector2(5.5546384, 5.8006477)
 text = "Central 1"
 
 [node name="RobotArrow" parent="." instance=ExtResource("1_6wuwi")]
-position = Vector2(545, 195)
+position = Vector2(546, 172)
 rotation = 4.712389
 destination_scene_path = "res://scenes/submarine_rooms/robot_room.tscn"
 
 [node name="SupplyArrow" parent="." instance=ExtResource("1_6wuwi")]
-position = Vector2(907, 279)
+position = Vector2(48, 382)
 destination_scene_path = "res://scenes/submarine_rooms/supply_room.tscn"
 
 [node name="MedicalArrow" parent="." instance=ExtResource("1_6wuwi")]
-position = Vector2(252, 403)
+position = Vector2(1161, 511)
 rotation = 3.1415927
 destination_scene_path = "res://scenes/submarine_rooms/medical_room.tscn"
 
 [node name="CentralArrow" parent="." instance=ExtResource("1_6wuwi")]
-position = Vector2(912.99994, 564)
+position = Vector2(895.99994, 777)
 rotation = 1.5707964
 scale = Vector2(0.47, 4.345)
 destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 108.99988
-offset_top = 214.99994
-offset_right = 199.99988
-offset_bottom = 237.99994
+offset_left = 1005.0001
+offset_top = 317.0
+offset_right = 1096.0001
+offset_bottom = 340.0
 scale = Vector2(1.7696835, 1.8905197)
 text = "To medical"
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 383.99994
-offset_top = 73.99991
-offset_right = 474.99994
-offset_bottom = 96.99991
+offset_left = 418.0
+offset_top = 84.0
+offset_right = 509.0
+offset_bottom = 107.0
 scale = Vector2(1.7696835, 1.8905197)
 text = "To robot"
 
 [node name="Label4" type="Label" parent="."]
-offset_left = 910.0
-offset_top = 225.99994
-offset_right = 1001.0
-offset_bottom = 248.99994
+offset_left = 37.0
+offset_top = 315.0
+offset_right = 128.0
+offset_bottom = 338.0
 scale = Vector2(1.7696835, 1.8905197)
 text = "To supply"
 
 [node name="Label5" type="Label" parent="."]
-offset_left = 523.0
-offset_top = 501.0
-offset_right = 563.0
-offset_bottom = 524.0
+offset_left = 506.0
+offset_top = 714.0
+offset_right = 644.0
+offset_bottom = 737.0
 scale = Vector2(1.7696835, 1.8905197)
 text = "To central 2 (East)"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(600, 450)
+scale = Vector2(0.62499994, 0.625)
+texture = ExtResource("2_ru3lm")
+
+[node name="Distant Eye" type="AnimatedSprite2D" parent="."]
+position = Vector2(615, 233)
+sprite_frames = SubResource("SpriteFrames_rck5h")
+script = ExtResource("4_cov2f")

@@ -1,16 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://1xlbd4kdmgmc"]
+[gd_scene load_steps=3 format=3 uid="uid://1xlbd4kdmgmc"]
 
 [ext_resource type="PackedScene" uid="uid://d08425uqgap3r" path="res://scenes/arrow.tscn" id="1_1767k"]
+[ext_resource type="Texture2D" uid="uid://bmmxlb62sncw5" path="res://assets/backgrounds/misc2.jpg" id="2_fyuh5"]
 
 [node name="BarracksRoom" type="Node2D"]
 
 [node name="CentralArrow" parent="." instance=ExtResource("1_1767k")]
-position = Vector2(912.99994, 564)
+position = Vector2(894.99994, 771)
 rotation = 1.5707964
 scale = Vector2(0.47, 4.345)
 destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 475.0
 offset_top = 197.0
 offset_right = 515.0
@@ -19,9 +21,15 @@ scale = Vector2(5.5546384, 5.8006477)
 text = "Barracks"
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 523.0
-offset_top = 501.0
-offset_right = 563.0
-offset_bottom = 524.0
+offset_left = 505.0
+offset_top = 708.0
+offset_right = 596.0
+offset_bottom = 731.0
 scale = Vector2(1.7696835, 1.8905197)
 text = "To central 2"
+
+[node name="Misc2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(600, 449.99997)
+scale = Vector2(0.625, 0.62499994)
+texture = ExtResource("2_fyuh5")
