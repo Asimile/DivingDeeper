@@ -15,22 +15,22 @@ scale = Vector2(5.5546384, 5.8006477)
 text = "Central 2"
 
 [node name="EngineArrow" parent="." instance=ExtResource("1_wet7r")]
-position = Vector2(941, 529)
-rotation = 4.712389
+position = Vector2(918, 649)
+rotation = 3.1415927
 destination_scene_path = "res://scenes/submarine_rooms/engine_room.tscn"
 
 [node name="BarracksArrow" parent="." instance=ExtResource("1_wet7r")]
-position = Vector2(235, 534)
-rotation = 3.1415927
+position = Vector2(252, 457)
 destination_scene_path = "res://scenes/submarine_rooms/barracks_room.tscn"
 
 [node name="CentralArrow" parent="." instance=ExtResource("1_wet7r")]
-position = Vector2(900, 797)
-rotation = 1.5707964
+position = Vector2(177.99988, 845.99994)
+rotation = 4.712389
 scale = Vector2(0.47, 4.345)
 destination_scene_path = "res://scenes/submarine_rooms/central_room_1.tscn"
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 offset_left = 82.999985
 offset_top = 338.0
 offset_right = 173.99998
@@ -39,6 +39,7 @@ scale = Vector2(1.7696835, 1.8905197)
 text = "To barracks"
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 offset_left = 968.0
 offset_top = 340.0
 offset_right = 1059.0

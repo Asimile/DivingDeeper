@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d08425uqgap3r"]
 
 [ext_resource type="Script" uid="uid://x0vxu5jknlwx" path="res://scripts/arrow.gd" id="1_1usli"]
-[ext_resource type="Texture2D" uid="uid://ba5ltta7w51pi" path="res://icon.svg" id="2_ka2rm"]
+[ext_resource type="Texture2D" uid="uid://bnb4ctkrd5sab" path="res://assets/sprites/arrow.png" id="2_23jat"]
 
 [node name="Arrow" type="Node2D"]
 script = ExtResource("1_1usli")
@@ -9,6 +9,7 @@ script = ExtResource("1_1usli")
 [node name="Button" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
-icon = ExtResource("2_ka2rm")
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("2_23jat")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

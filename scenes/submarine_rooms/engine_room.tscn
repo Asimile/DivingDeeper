@@ -37,8 +37,8 @@ scale = Vector2(1.7696835, 1.8905197)
 text = "To central 2"
 
 [node name="CentralArrow" parent="." instance=ExtResource("1_eaiuv")]
-position = Vector2(913.99994, 772)
-rotation = 1.5707964
+position = Vector2(237.99994, 881.99994)
+rotation = 4.712389
 scale = Vector2(0.47, 4.345)
 destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
 

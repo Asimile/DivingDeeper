@@ -38,8 +38,8 @@ animations = [{
 [node name="RobotRoom" type="Node2D"]
 
 [node name="CentralArrow" parent="." instance=ExtResource("1_ewq36")]
-position = Vector2(916.99994, 801)
-rotation = 1.5707964
+position = Vector2(214.99992, 871.99994)
+rotation = 4.712389
 scale = Vector2(0.47, 4.345)
 destination_scene_path = "res://scenes/submarine_rooms/central_room_1.tscn"
 

@@ -15,8 +15,8 @@ spriteTexture = ExtResource("5_fpw7g")
 [node name="BarracksRoom" type="Node2D"]
 
 [node name="CentralArrow" parent="." instance=ExtResource("1_1767k")]
-position = Vector2(894.99994, 771)
-rotation = 1.5707964
+position = Vector2(222.99988, 862.99994)
+rotation = 4.712389
 scale = Vector2(0.47, 4.345)
 destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
 
@@ -30,6 +30,7 @@ scale = Vector2(5.5546384, 5.8006477)
 text = "Barracks"
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 offset_left = 505.0
 offset_top = 708.0
 offset_right = 596.0

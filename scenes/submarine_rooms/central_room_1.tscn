@@ -102,8 +102,8 @@ scale = Vector2(5.5546384, 5.8006477)
 text = "Central 1"
 
 [node name="RobotArrow" parent="." instance=ExtResource("1_6wuwi")]
-position = Vector2(546, 172)
-rotation = 4.712389
+position = Vector2(715, 13)
+rotation = 1.5707964
 destination_scene_path = "res://scenes/submarine_rooms/robot_room.tscn"
 
 [node name="SupplyArrow" parent="." instance=ExtResource("1_6wuwi")]
@@ -116,12 +116,13 @@ rotation = 3.1415927
 destination_scene_path = "res://scenes/submarine_rooms/medical_room.tscn"
 
 [node name="CentralArrow" parent="." instance=ExtResource("1_6wuwi")]
-position = Vector2(895.99994, 777)
-rotation = 1.5707964
+position = Vector2(205.99988, 835.99994)
+rotation = 4.712389
 scale = Vector2(0.47, 4.345)
 destination_scene_path = "res://scenes/submarine_rooms/central_room_2.tscn"
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 offset_left = 1005.0001
 offset_top = 317.0
 offset_right = 1096.0001
@@ -130,6 +131,7 @@ scale = Vector2(1.7696835, 1.8905197)
 text = "To medical"
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 offset_left = 418.0
 offset_top = 84.0
 offset_right = 509.0
@@ -138,6 +140,7 @@ scale = Vector2(1.7696835, 1.8905197)
 text = "To robot"
 
 [node name="Label4" type="Label" parent="."]
+visible = false
 offset_left = 37.0
 offset_top = 315.0
 offset_right = 128.0
@@ -146,6 +149,7 @@ scale = Vector2(1.7696835, 1.8905197)
 text = "To supply"
 
 [node name="Label5" type="Label" parent="."]
+visible = false
 offset_left = 506.0
 offset_top = 714.0
 offset_right = 644.0
