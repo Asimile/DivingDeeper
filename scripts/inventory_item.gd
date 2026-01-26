@@ -1,21 +1,14 @@
 extends Node2D
 
 @export var data: Resource
-@export var handPosition = Vector2(1150,850) #stores the on-screen location of the player hand
 var dragging = false
 
 func _ready():
 	assert(data != null, "no data assigned to inventory item")
-	self.position = handPosition
+	self.position = data.homePosition
 	$Button.button_down.connect(on_grab)
 	$Button.button_up.connect(on_use)
 	$TextureRect.texture = data.spriteTexture
-	
-	GlobalInteractions.itemSelected.connect(on_item_selected)
-	
-	#show a debug label containing the itemID if the texture false to load
-	if data.label:
-		$Label.text = data.itemID
 
 func _process(_delta):
 	if dragging:
@@ -28,7 +21,7 @@ var yoff = 0
 
 # handle the inventory item being selected
 func on_grab():
-	GlobalInteractions.emit_signal("itemGrabbed", data.itemID)
+	GlobalInteractions.emit_signal("itemGrabbed", data.index)
 	dragging = true
 	xoff = self.position.x - get_viewport().get_mouse_position().x
 	yoff = self.position.y - get_viewport().get_mouse_position().y
@@ -45,7 +38,7 @@ func on_use():
 	GlobalInteractions.interactionOutcome.connect(on_interaction, CONNECT_ONE_SHOT)
 	
 	#notify interactable items that an item was used 
-	GlobalInteractions.emit_signal("itemUsed", data.itemID) 
+	GlobalInteractions.emit_signal("itemUsed", data.itemID, data.index) 
 	
 	#wait one physics tick for a response signal signifying the item was dropped on an interactable
 	await get_tree().create_timer(1.0 / Engine.physics_ticks_per_second).timeout
@@ -53,15 +46,13 @@ func on_use():
 	#no response; decouple event handler and return to inventory
 	if interactionStatus == null:
 		GlobalInteractions.interactionOutcome.disconnect(on_interaction);
-		self.position = handPosition
-	elif interactionStatus == GlobalInteractions.OUTCOME.SUCCESS_FINAL:
-		#use suceeded and item is used up
+		self.position = data.homePosition
+	
+	if interactionStatus == GlobalInteractions.OUTCOME.FAIL || interactionStatus == GlobalInteractions.OUTCOME.SUCCESS:
+		#return item to correct on screen position
+		self.position = data.homePosition 
+	
+	if interactionStatus == GlobalInteractions.OUTCOME.SUCCESS_FINAL:
+		#TODO notify inventory system that item was deleted
+		#TODO have inventory manager delete item instance
 		self.free() #delete self 
-	elif interactionStatus == GlobalInteractions.OUTCOME.FAIL || interactionStatus == GlobalInteractions.OUTCOME.SUCCESS:
-		#Use suceeded but is repeatable, or use failed. Return item to correct on screen position
-		self.position = handPosition
-
-func on_item_selected(idString):
-	if not idString == data.itemID:
-		# a new item was selected via the PDA
-		self.queue_free()

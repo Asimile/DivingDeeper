@@ -1,9 +1,3 @@
-[gd_scene load_steps=8 format=3 uid="uid://c41d30gdf3eis"]
-
-[ext_resource type="Script" uid="uid://bhxi3828do551" path="res://scripts/scene_manager.gd" id="1_57mwd"]
-[ext_resource type="AudioStream" uid="uid://cr7blxxtrorho" path="res://assets/audio/footsteps.ogg" id="2_65mdo"]
-[ext_resource type="PackedScene" uid="uid://dot7i57f0ocbj" path="res://scenes/pda_open_close.tscn" id="3_b81s6"]
-[ext_resource type="PackedScene" uid="uid://bj8g6u5mnkmo3" path="res://scenes/pda.tscn" id="4_h7lqg"]
 [gd_scene load_steps=9 format=3 uid="uid://c41d30gdf3eis"]
 
 [ext_resource type="Script" uid="uid://bhxi3828do551" path="res://scripts/scene_manager.gd" id="1_57mwd"]
@@ -147,12 +141,5 @@ grow_vertical = 2
 scale = Vector2(31.12, 18.64)
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="Pda" parent="." instance=ExtResource("4_h7lqg")]
-visible = false
-script = null
-
-[node name="PdaOpenClose" parent="." instance=ExtResource("3_b81s6")]
-z_index = 3
 
 [connection signal="timeout" from="ImplosionTimer" to="." method="_on_implosion_timer_timeout"]

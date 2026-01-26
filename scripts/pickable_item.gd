@@ -1,20 +1,12 @@
 extends Node2D
 
+var Global = preload("res://scripts/global.gd")
 @export var data: Resource
-@export var pos = Vector2(0,0)
 
 func _ready():
 	assert(data != null, "no data assigned to pickable item")
-	
-	if not GlobalData.game_data["item_"+data.itemID]:
-		self.queue_free();
-		
-	self.position = pos
+	self.position = data.homePosition
 	$TextureRect.texture = data.spriteTexture
-	
-	#show a debug label containing the itemID if the texture false to load
-	if data.label:
-		$Label.text = data.itemID
 	
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
