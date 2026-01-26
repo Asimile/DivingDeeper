@@ -51,7 +51,10 @@ func onItemFound(idString):
 		print("item "+idString+" found")
 
 func onItemSelected(idString):
+	print("Item was selected")
 	GlobalData.currentItem = idString
+	if GlobalData.pda_open:
+		GlobalInteractions.togglePDA.emit()
 	if debug:
 		print("item "+idString+" selected from inventory")
 		

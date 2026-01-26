@@ -67,7 +67,7 @@ func _swap_room(destination_path: String):
 	room_container.add_child(current_room)
 
 func on_inventory_item_selected(itemID):
-	if currentItem == null || not currentItem.idString == itemID:
+	if currentItem == null || not currentItem.data.itemID == itemID:
 		var itemData = InventoryItemData.new(itemID)
 		currentItem = InventoryItem.instantiate()
 		currentItem.data = itemData

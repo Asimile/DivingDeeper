@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj8g6u5mnkmo3"]
+[gd_scene load_steps=3 format=3 uid="uid://dnqflywhltp5o"]
 
 [ext_resource type="Texture2D" uid="uid://dgqysrs4vrwoi" path="res://assets/sprites/PDA_Sprite.png" id="1_06rri"]
 [ext_resource type="PackedScene" uid="uid://p6itqkds2mmh" path="res://scenes/pda_button.tscn" id="1_7vl7m"]
@@ -18,6 +18,15 @@ offset_right = 794.0
 offset_bottom = 610.0
 color = Color(0.4817894, 0.48178953, 0.4817894, 1)
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2.0
+offset_top = 4.0
+offset_right = 1228.0
+offset_bottom = 898.0
+texture = ExtResource("1_06rri")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="PdaButton" parent="." instance=ExtResource("1_7vl7m")]
 position = Vector2(506, 204)
 itemID = "wrench"
@@ -25,6 +34,8 @@ displayName = "Wrench"
 
 [node name="PdaButton2" parent="." instance=ExtResource("1_7vl7m")]
 position = Vector2(621, 203)
+itemID = "key"
+displayName = "Key"
 
 [node name="PdaButton3" parent="." instance=ExtResource("1_7vl7m")]
 position = Vector2(509, 316)
@@ -37,12 +48,3 @@ position = Vector2(506, 428)
 
 [node name="PdaButton6" parent="." instance=ExtResource("1_7vl7m")]
 position = Vector2(619, 427)
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -2.0
-offset_top = 4.0
-offset_right = 1228.0
-offset_bottom = 898.0
-texture = ExtResource("1_06rri")
-expand_mode = 1
-stretch_mode = 5
