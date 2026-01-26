@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgd0l4nu2v2tw"]
+
+[ext_resource type="Script" uid="uid://dppbwk06246e4" path="res://scenes/vnDebug.gd" id="1_3q11x"]
+[ext_resource type="Script" uid="uid://c37xye7t5vycy" path="res://scenes/VisualNovel.gd" id="1_yyuhb"]
+[ext_resource type="AudioStream" uid="uid://cf2fexgphqhar" path="res://audio/mech-keyboard-02-102918.mp3" id="2_3q11x"]
+
+[node name="VisualNovel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3q11x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_yyuhb")
+
+[node name="TalkSound" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("2_3q11x")
+
+[node name="MainButton" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.0020001
+anchor_bottom = 1.0120001
+offset_right = -0.30407715
+offset_bottom = 0.22393799
+flat = true
+
+[node name="RoboText" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.296
+anchor_top = 0.62200004
+anchor_right = 0.666
+anchor_bottom = 0.79600006
+offset_left = 0.0079956055
+offset_top = -0.056030273
+offset_right = -0.23199463
+offset_bottom = 0.19195557
+
+[node name="debugInfo" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.254
+anchor_right = 0.629
+anchor_bottom = 0.113000005
+offset_left = -3.6080017
+offset_right = 0.39196777
+offset_bottom = -0.22400665
+
+[node name="test1" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.15100001
+anchor_bottom = 0.056
+offset_right = 0.04798889
+offset_bottom = -0.288002
+button_mask = 2
+text = "test dialogue 1"
+
+[node name="test2" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.060000002
+anchor_right = 0.15200001
+anchor_bottom = 0.127
+offset_top = 0.11999893
+offset_right = -0.104003906
+offset_bottom = -0.29600525
+button_mask = 2
+text = "test dialogue 2"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20300001
+anchor_top = 0.18100001
+anchor_right = 0.77400005
+anchor_bottom = 0.73300004
+offset_left = 0.14398193
+offset_top = -0.28800964
+offset_right = 0.3519287
+offset_bottom = 0.015960693
+text = "I'm the robot!"
+
+[connection signal="pressed" from="CanvasLayer/MainButton" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/test1" to="CanvasLayer" method="_on_test_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/test2" to="CanvasLayer" method="_on_test_2_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
